@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/shared-style.css">
+</head>
+
+<body>
+    <div class="form-block">
+        <div class="box active">
+            <form method="post" action="/login">
+                <h1>Login</h1><br />
+                <input type="text" name="username" placeholder="Username" required value="<% if(user) { %><%=user.username%><% } %>"/><br />
+                <input type="password" name="password" placeholder="Password" required value="<% if(user) { %><%=user.password%><% } %>"/><br />
+                <% if(error) { %>
+                    <span class="error"><%= error %></span>
+                    <br />
+                <% }; %>
+                <br />
+                <div>
+                    <a href="/register">Register</a>   
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

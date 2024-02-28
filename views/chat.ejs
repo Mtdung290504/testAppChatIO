@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat: <%=authUser.uname%></title>
+    <link rel="stylesheet" href="/styles/chat-style.css">
+    <script id="remove-script">
+        window.authUid = '<%=authUser.uid%>';
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/scripts/start-app.js"></script>
+</head>
+<body>
+    <div class="header">
+        <a id="logout-link" href="../logout">Logout</a>
+        <p class="hi">Hi! <%=authUser.uname%></p>
+    </div>
+
+    <div class="container">
+        <div class="sidenav">
+            <% allUser.forEach(user => { %>
+                <div data-id="<%=user.uid%>" class="user new-mess <%= onlineUserId.includes(user.uid) ? 'onl' : '' %>">
+                    <div class="user-info">
+                        <p class="username"><%=user.uname%></p>
+                        <p class="user-mess"></p>
+                    </div>
+                    <div class="status"></div>
+                </div>
+            <% }) %>
+        </div>
+
+        <div class="main">
+            <div class="content-container"></div>
+            <div class="text">
+                <form action="" id="form">
+                    <input type="text" name="" id="" placeholder="Chat..." required>
+                    <button>Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

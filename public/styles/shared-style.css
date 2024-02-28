@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #222;
+}
+
+.form-block {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-block .box form {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 40px 70px;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: space-around;
+}
+.box.active {
+    position: relative;
+    margin-top: -100px;
+    height: fit-content;
+    width: fit-content;
+    min-width: 200px;
+    min-height: 100px;
+    background: repeating-conic-gradient(
+        from var(--a),
+        transparent 0%,
+        transparent 12.5%,
+        #0095f8 20%,
+        /* transparent 22.5%,
+        transparent 27.5%, */
+        #ff2770 40%,
+        transparent 47.5%,
+        transparent 50%
+        ,
+        transparent 50%,
+        transparent 62.5%,
+        #0095f8 70%,
+        /* transparent 72.5%,
+        transparent 77.5%, */
+        #ff2770 90%,
+        transparent 97.5%,
+        transparent 100%
+    );
+    padding: 5px;
+    animation: rolate 5s linear infinite;
+    border-radius: 15px;
+}
+@property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+@keyframes rolate {
+    0% { --a: 0deg; }
+    100% { --a: 360deg; }
+}
+
+.form-block .box form h1 {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.form-block .box form input {
+    font-family: "Times New Roman", Times, serif;
+    padding: 10px;
+    margin: 2px;
+    display: block;
+    min-width: 400px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 16px;
+}
+
+.form-block .box form input:focus {
+    outline: none;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 10px white;
+}
+
+.form-block .box form button[type="submit"],
+.form-block .box form a {
+    font-family: "Times New Roman", Times, serif;
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+    width: 180px;
+    font-size: 16px;
+    background-color: #222;
+    border: none;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    margin: 2px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.form-block .box form :is(a, button):hover {
+    background-color: black;
+    box-shadow: 0.5px 0.5px 15px white;
+}
+
+.error {
+    color: red;
+    font-size: 16px;
+}
+
+.error::after {
+    content: "!";
+}
