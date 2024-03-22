@@ -156,7 +156,7 @@ export default class App {
             this.socket.on('user offline', (uid)=>{
                 const chatBox = document.querySelector(`.content[data-id="${uid}"]`);
                 console.log('User offline: ', uid);
-                document.querySelector(`.user[data-id="${uid}]"`).classList.remove('onl');
+                document.querySelector(`.user[data-id="${uid}"]`).classList.remove('onl');
                 if(chatBox) {
                     chatBox.querySelector('.status').classList.remove('onl');
                 }
